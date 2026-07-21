@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jodi M. Casabianca — Psychometrician &amp; Measurement Scientist</title>
+<meta name="description" content="Jodi M. Casabianca is a psychometrician and measurement scientist working at the intersection of psychometrics, assessment, and AI evaluation. Research Scientist at NIST and Founder of BroadMetrics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F6;
+    --ink:#20242C;
+    --slate:#5A6472;
+    --line:#E6E2D8;
+    --accent:#8E2C48;
+    --accent-soft:#F3E6EB;
+    --grid:rgba(142,44,72,0.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Public Sans',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    font-size:17px;
+  }
+  ::selection{background:var(--accent-soft)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+  /* ── Nav ─────────────────────────── */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(250,249,246,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:980px;margin:0 auto;gap:16px;
+  }
+  .nav-name{
+    font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;
+    letter-spacing:.02em;color:var(--ink);white-space:nowrap;
+  }
+  .nav-name:hover{text-decoration:none}
+  .nav-links{display:flex;gap:22px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .nav-links a{
+    font-size:.82rem;font-weight:500;color:var(--slate);
+    text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--accent);text-decoration:none}
+
+  /* ── Hero ─────────────────────────── */
+  header{
+    position:relative;overflow:hidden;
+    background-image:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:44px 44px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero{position:relative;padding:96px 0 72px}
+  .hero-curve{
+    position:absolute;right:-40px;bottom:0;width:min(58vw,560px);height:auto;
+    pointer-events:none;opacity:.9;
+  }
+  .icc-path{
+    fill:none;stroke:var(--accent);stroke-width:2.5;
+    stroke-dasharray:900;stroke-dashoffset:900;
+    animation:draw 1.8s ease-out .3s forwards;
+  }
+  .icc-axis{stroke:var(--slate);stroke-width:1;opacity:.45}
+  .icc-label{font-family:'STIX Two Text',serif;font-style:italic;font-size:17px;fill:var(--slate)}
+  .icc-dot{fill:var(--accent);opacity:0;animation:appear .4s ease-out 2s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes appear{to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .icc-path{stroke-dashoffset:0;animation:none}
+    .icc-dot{opacity:1;animation:none}
+  }
+
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'STIX Two Text',serif;font-weight:600;
+    font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.08;
+    letter-spacing:-.01em;margin-bottom:14px;max-width:14ch;
+  }
+  .tagline{
+    font-family:'STIX Two Text',serif;font-style:italic;
+    font-size:1.25rem;color:var(--slate);margin-bottom:22px;
+  }
+  .lede{max-width:52ch;color:var(--ink);margin-bottom:32px}
+  .lede strong{font-weight:600}
+
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+  .btn{
+    display:inline-block;padding:11px 22px;border-radius:3px;
+    font-size:.9rem;font-weight:600;letter-spacing:.02em;
+  }
+  .btn-solid{background:var(--accent);color:#fff}
+  .btn-solid:hover{background:#75243C;text-decoration:none}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+  .profile-links{display:flex;flex-wrap:wrap;gap:8px 22px}
+  .profile-links a{
+    font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--slate);
+  }
+  .profile-links a:hover{color:var(--accent)}
+
+  /* ── Ruler divider (signature) ────── */
+  .ruler{
+    height:14px;margin:0;border:none;
+    background-image:
+      linear-gradient(90deg,var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--slate) 1px,transparent 1px);
+    background-size:11px 7px,110px 14px;
+    background-repeat:repeat-x;
+    background-position:bottom left,bottom left;
+    opacity:.55;
+  }
+
+  /* ── Stats ────────────────────────── */
+  .stats{padding:44px 0;border-bottom:1px solid var(--line)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stat-num{
+    font-family:'IBM Plex Mono',monospace;font-size:1.55rem;font-weight:500;
+    color:var(--accent);
+  }
+  .stat-label{font-size:.8rem;color:var(--slate);letter-spacing:.03em;margin-top:2px}
+
+  /* ── Sections ─────────────────────── */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:.75rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+    margin-bottom:10px;
+  }
+  h2{
+    font-family:'STIX Two Text',serif;font-weight:600;
+    font-size:clamp(1.6rem,3.5vw,2.1rem);margin-bottom:28px;letter-spacing:-.01em;
+  }
+  h2 .it{font-style:italic}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:start}
+  .about-text p{margin-bottom:18px;max-width:60ch}
+  .portrait{
+    border:1px solid var(--line);border-radius:4px;overflow:hidden;
+    background:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:28px 28px;
+    aspect-ratio:4/5;position:relative;
+  }
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+  .portrait.no-photo::after{
+    content:"JMC";
+    position:absolute;inset:0;display:grid;place-items:center;
+    font-family:'STIX Two Text',serif;font-style:italic;font-size:3rem;
+    color:var(--accent);
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .chip{
+    font-size:.78rem;font-weight:500;color:var(--ink);
+    background:var(--accent-soft);border-radius:999px;padding:5px 13px;
+  }
+
+  /* Research */
+  .research-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .r-card{border:1px solid var(--line);border-radius:4px;padding:26px;background:#fff}
+  .r-glyph{
+    font-family:'STIX Two Text',serif;font-style:italic;
+    font-size:2rem;color:var(--accent);line-height:1;margin-bottom:12px;display:block;
+  }
+  .r-card h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.12rem;margin-bottom:8px}
+  .r-card p{font-size:.93rem;color:var(--slate)}
+
+  /* Publications */
+  .pub{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px 0;border-bottom:1px dashed var(--line)}
+  .pub:last-of-type{border-bottom:none}
+  .pub-tag{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--slate);padding-top:3px}
+  .pub-title{font-weight:600;margin-bottom:2px}
+  .pub-desc{font-size:.9rem;color:var(--slate)}
+  .pub-more{margin-top:26px}
+
+  /* Writing */
+  .writing-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .w-card{border:1px solid var(--line);border-radius:4px;padding:26px;background:#fff;display:block;color:var(--ink)}
+  .w-card:hover{text-decoration:none;border-color:var(--accent)}
+  .w-kicker{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .w-card h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.15rem;margin-bottom:6px}
+  .w-card p{font-size:.92rem;color:var(--slate)}
+  .w-arrow{display:inline-block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--accent)}
+
+  /* Contact */
+  .contact p{max-width:52ch;margin-bottom:24px}
+
+  /* Footer */
+  footer{padding:36px 0 48px}
+  .foot-disclaimer{font-size:.8rem;color:var(--slate);max-width:64ch;margin-bottom:14px}
+  .foot-meta{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--slate)}
+
+  /* ── Responsive ───────────────────── */
+  @media (max-width:760px){
+    .hero{padding:64px 0 200px}
+    .hero-curve{width:88vw;right:-30px;opacity:.55}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:28px 16px}
+    .about-grid{grid-template-columns:1fr}
+    .portrait{max-width:280px}
+    .research-grid,.writing-grid{grid-template-columns:1fr}
+    .pub{grid-template-columns:1fr;gap:4px}
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Site">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Jodi M. Casabianca</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero">
+    <!-- Item characteristic curve — the signature motif -->
+    <svg class="hero-curve" viewBox="0 0 600 320" aria-hidden="true">
+      <line class="icc-axis" x1="30" y1="290" x2="580" y2="290"/>
+      <line class="icc-axis" x1="30" y1="290" x2="30" y2="20"/>
+      <text class="icc-label" x="560" y="313">&#952;</text>
+      <text class="icc-label" x="8" y="34">P(&#952;)</text>
+      <path class="icc-path" d="M 40 282 C 180 276, 240 240, 300 155 C 360 70, 430 32, 570 26"/>
+      <circle class="icc-dot" cx="300" cy="155" r="5"/>
+    </svg>
+
+    <p class="kicker">Research Scientist, NIST &nbsp;&middot;&nbsp; Founder &amp; Chief Scientist, BroadMetrics</p>
+    <h1>Hi, I&rsquo;m Jodi Casabianca</h1>
+    <p class="tagline">Psychometrician &amp; measurement scientist</p>
+    <p class="lede">
+      I work at the intersection of <strong>psychometrics</strong>, <strong>assessment</strong>,
+      and <strong>AI evaluation</strong> &mdash; bringing a century of measurement science to bear
+      on how we evaluate modern AI systems. My goal is to help researchers, developers, and
+      organizations draw valid, reliable, and defensible conclusions from their measurements,
+      whether the examinee is a student or a language model.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-solid" href="#publications">View publications</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+    <div class="profile-links" aria-label="Profiles">
+      <a href="https://scholar.google.com/citations?user=8TjqccwAAAAJ">Google Scholar &#8599;</a>
+      <a href="https://www.linkedin.com/in/jcasabianca/">LinkedIn &#8599;</a>
+      <a href="https://www.researchgate.net/profile/Jodi-Casabianca">ResearchGate &#8599;</a>
+      <a href="https://medium.com/@jodi.casabianca">Medium &#8599;</a>
+      <a href="https://measuringai.substack.com">Substack &#8599;</a>
+      <a href="https://www.broadmetrics.co">BroadMetrics &#8599;</a>
+    </div>
+  </div>
+</header>
+
+<hr class="ruler" aria-hidden="true">
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div><div class="stat-num">1,200+</div><div class="stat-label">Citations</div></div>
+    <div><div class="stat-num">15+</div><div class="stat-label">Years in large-scale assessment</div></div>
+    <div><div class="stat-num">Ph.D.</div><div class="stat-label">Psychometrics, Fordham University</div></div>
+    <div><div class="stat-num">AE</div><div class="stat-label">Assoc. Editor, <em>EM:IP</em></div></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2>Measurement science <span class="it">for the AI era</span></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I am a psychometrician with over 15 years of operational and research experience in
+          large-scale assessment. I hold a Ph.D. and M.A. in Psychometrics and Quantitative
+          Psychology from Fordham University, and an M.S. in Applied and Mathematical Statistics
+          and a B.A. in Statistics and Psychology from Rutgers University. My career spans
+          research and faculty roles at ETS and the University of Texas at Austin, and a
+          U.S. Department of Education&ndash;funded postdoctoral fellowship in advanced
+          quantitative methods at Carnegie Mellon University and RAND.
+        </p>
+        <p>
+          I am currently a Research Scientist at the National Institute of Standards and
+          Technology (NIST), where I work on measurement and evaluation methods for AI systems.
+          I am also the founder of BroadMetrics, bridging academic psychometrics and real-world
+          applications &mdash; from human rating systems and automated scoring evaluation to
+          psychometric approaches for AI benchmarking. I serve as an Associate Editor of
+          <em>Educational Measurement: Issues and Practice</em> and write about measurement and
+          AI evaluation on my Substack, <em>Measuring AI</em>.
+        </p>
+        <div class="chips" aria-label="Research interests">
+          <span class="chip">Psychometrics</span>
+          <span class="chip">AI Evaluation</span>
+          <span class="chip">Validity Frameworks</span>
+          <span class="chip">Evidence-Centered Design</span>
+          <span class="chip">Raters &amp; Ratings</span>
+          <span class="chip">Constructed-Response Scoring</span>
+          <span class="chip">Scale Development</span>
+          <span class="chip">Item Response Theory</span>
+          <span class="chip">LLM Benchmarking</span>
+        </div>
+      </div>
+      <!-- Replace with your headshot: upload a file named profile.jpg to the same folder.
+           Until then, an initials placeholder is shown automatically. -->
+      <figure class="portrait">
+        <img src="profile.jpg" alt="Portrait of Jodi M. Casabianca"
+             onerror="this.parentElement.classList.add('no-photo');this.remove()">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <p class="eyebrow">Research</p>
+    <h2>Making measurement <span class="it">reliable, interpretable, defensible</span></h2>
+    <div class="research-grid">
+      <div class="r-card">
+        <span class="r-glyph" aria-hidden="true">&#952;</span>
+        <h3>Psychometrics for AI Evaluation</h3>
+        <p>Applying validity theory, evidence-centered design, and item response theory to AI
+        benchmarking and evaluation pipelines. AI evaluation faces the same threats to validity
+        that educational measurement solved decades ago &mdash; construct underrepresentation,
+        score inflation, benchmark saturation &mdash; and those solutions adapt to LLM contexts.</p>
+      </div>
+      <div class="r-card">
+        <span class="r-glyph" aria-hidden="true">&#961;</span>
+        <h3>Raters, Ratings &amp; Human Judgment</h3>
+        <p>Modeling rater effects with the hierarchical rater model (HRM) framework and its
+        extensions. Human judgments &mdash; scoring student essays or labeling AI outputs &mdash;
+        are measurements subject to systematic error, and psychometric rater models improve
+        the reliability of conclusions drawn from them.</p>
+      </div>
+      <div class="r-card">
+        <span class="r-glyph" aria-hidden="true">&#954;</span>
+        <h3>Scoring with Humans &amp; Machines</h3>
+        <p>Methods for evaluating automated scoring engines, including fairness testing,
+        agreement metrics (and the limitations of quadratic weighted kappa), and validity
+        arguments for constructed-response scoring with generative AI.</p>
+      </div>
+      <div class="r-card">
+        <span class="r-glyph" aria-hidden="true">&#968;</span>
+        <h3>Scale Development &amp; Validation</h3>
+        <p>Developing and validating psychometric instruments, from social-emotional learning
+        assessments to new scales for measuring AI behavior, including sycophancy and user
+        metacognition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <p class="eyebrow">Publications</p>
+    <h2>Selected work</h2>
+
+    <!-- Replace these entries with full APA citations from your CV as desired. -->
+    <div class="pub">
+      <div class="pub-tag">2025 &middot; Position paper</div>
+      <div>
+        <div class="pub-title">Psychometrics Is All You Need</div>
+        <div class="pub-desc">Psychometric methods and validity frameworks for AI evaluation science.</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-tag">Journal article</div>
+      <div>
+        <div class="pub-title">Psychometric rater models in the AI pipeline</div>
+        <div class="pub-desc">Treating human evaluations of AI as measurements subject to systematic error, and modeling rater effects to improve reliability and validity.</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-tag">Journal article</div>
+      <div>
+        <div class="pub-title">On the quadratic weighted kappa</div>
+        <div class="pub-desc">Practical limitations of QWK for interrater reliability and automated scoring evaluation, compared with alternative concordance metrics.</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-tag">Journal article</div>
+      <div>
+        <div class="pub-title">Accounting for Rater Effects With the Hierarchical Rater Model Framework When Scoring Simple Structured Constructed Response Tests</div>
+        <div class="pub-desc">Extending the HRM to multidimensional, simple structured assessments.</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-tag">Handbook chapter</div>
+      <div>
+        <div class="pub-title">The Hierarchical Rater Model (with B. Junker &amp; R. Patz)</div>
+        <div class="pub-desc"><em>Handbook of Item Response Theory.</em></div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-tag">Digital module</div>
+      <div>
+        <div class="pub-title">ITEMS module: The Hierarchical Rater Model framework</div>
+        <div class="pub-desc">A primer on analyzing raters and ratings of constructed responses.</div>
+      </div>
+    </div>
+
+    <p class="pub-more">
+      <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=8TjqccwAAAAJ">Full list on Google Scholar &#8599;</a>
+    </p>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <p class="eyebrow">Writing</p>
+    <h2>Essays &amp; commentary</h2>
+    <div class="writing-grid">
+      <a class="w-card" href="https://measuringai.substack.com">
+        <p class="w-kicker">Substack</p>
+        <h3>Measuring AI</h3>
+        <p>Essays on psychometrics and AI evaluation science &mdash; validity, benchmarks,
+        human ratings, and what a century of measurement theory offers the AI era.</p>
+        <span class="w-arrow">Read on Substack &#8599;</span>
+      </a>
+      <a class="w-card" href="https://medium.com/@jodi.casabianca">
+        <p class="w-kicker">Medium series</p>
+        <h3>Psychometrics: What You Didn&rsquo;t Know You Needed</h3>
+        <p>A guide to psychometric methods for AI developers and evaluators, written for
+        readers without a measurement background.</p>
+        <span class="w-arrow">Read on Medium &#8599;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <p>For research collaborations, consulting inquiries, or speaking engagements, reach me
+    through LinkedIn or BroadMetrics.</p>
+    <!-- To add a direct email button, uncomment and edit the line below:
+    <a class="btn btn-solid" href="mailto:you@example.com">Email me</a>
+    -->
+    <div class="btn-row">
+      <a class="btn btn-solid" href="https://www.linkedin.com/in/jcasabianca/">Message me on LinkedIn</a>
+      <a class="btn btn-ghost" href="https://www.broadmetrics.co">Visit BroadMetrics</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-disclaimer">Views expressed on this site are my own and do not represent the
+    National Institute of Standards and Technology or the U.S. government.</p>
+    <p class="foot-meta">&copy; 2026 Jodi M. Casabianca &middot; Last updated July 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
