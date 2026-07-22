@@ -3,225 +3,307 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
 <title>Jodi M. Casabianca — Psychometrician &amp; Measurement Scientist</title>
-<meta name="description" content="Jodi M. Casabianca is a psychometrician and measurement scientist working at the intersection of psychometrics, assessment, and AI evaluation. Research Scientist at NIST and Founder of BroadMetrics.">
+<meta name="description" content="Jodi M. Casabianca is a psychometrician and measurement scientist bringing psychometrics to AI evaluation. Research Scientist at NIST and Founder of BroadMetrics.">
+<script>
+  // Set theme before first paint to avoid a flash of the wrong theme.
+  (function(){
+    var t=null;
+    try{t=localStorage.getItem('theme')}catch(e){}
+    if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+    document.documentElement.setAttribute('data-theme',t);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FAF9F6;
-    --ink:#20242C;
-    --slate:#5A6472;
-    --line:#E6E2D8;
-    --accent:#8E2C48;
-    --accent-soft:#F3E6EB;
-    --grid:rgba(142,44,72,0.07);
+    --paper:#FFFFFF;
+    --tint:#F2F6FE;
+    --ink:#0E1B33;
+    --muted:#54617A;
+    --line:#E2E9F5;
+    --card:#FFFFFF;
+    --a1:#4F46E5;              /* indigo        */
+    --a2:#1B5CFF;              /* electric blue */
+    --a3:#0894BE;              /* cyan          */
+    --a4:#0BA57C;              /* teal          */
+    --g1:#4F46E5;--g2:#1B5CFF;--g3:#06B6D4;   /* headline gradient */
+    --link:#1B5CFF;
+    --btn:#1B5CFF;
+    --btn-hover:#0F46D6;
+    --grid:rgba(27,92,255,.07);
+    --shadow:0 2px 12px rgba(16,42,100,.07);
+    --shadow-hover:0 10px 26px rgba(16,42,100,.13);
+  }
+  [data-theme="dark"]{
+    --paper:#0A1424;
+    --tint:#101E36;
+    --ink:#E8EEF9;
+    --muted:#98A8C4;
+    --line:#22344F;
+    --card:#14243C;
+    --a1:#818CF8;
+    --a2:#5B8CFF;
+    --a3:#38C6E8;
+    --a4:#34D3A6;
+    --g1:#818CF8;--g2:#5B8CFF;--g3:#38C6E8;
+    --link:#5B8CFF;
+    --btn:#2E6BFF;
+    --btn-hover:#5B8CFF;
+    --grid:rgba(91,140,255,.07);
+    --shadow:0 2px 12px rgba(0,0,0,.35);
+    --shadow-hover:0 10px 26px rgba(0,0,0,.5);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Public Sans',system-ui,sans-serif;
+    font-family:'Inter',system-ui,sans-serif;
     background:var(--paper);
     color:var(--ink);
     line-height:1.65;
     font-size:17px;
+    transition:background .25s ease,color .25s ease;
   }
-  ::selection{background:var(--accent-soft)}
-  a{color:var(--accent);text-decoration:none}
+  ::selection{background:var(--a2);color:#fff}
+  a{color:var(--link);text-decoration:none}
   a:hover{text-decoration:underline}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:4px}
 
-  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+  /* ── Spectrum stripe (signature) ─── */
+  .stripe{
+    height:6px;border:none;
+    background:linear-gradient(90deg,#4F46E5,#1B5CFF,#06B6D4,#10B981);
+  }
 
   /* ── Nav ─────────────────────────── */
   nav{
     position:sticky;top:0;z-index:10;
-    background:rgba(250,249,246,0.92);
+    background:color-mix(in srgb,var(--paper) 88%,transparent);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
+    transition:background .25s ease;
   }
   .nav-inner{
     display:flex;align-items:center;justify-content:space-between;
-    padding:14px 24px;max-width:980px;margin:0 auto;gap:16px;
+    padding:13px 24px;max-width:1000px;margin:0 auto;gap:16px;
   }
   .nav-name{
-    font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;
-    letter-spacing:.02em;color:var(--ink);white-space:nowrap;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;
+    color:var(--ink);white-space:nowrap;
   }
-  .nav-name:hover{text-decoration:none}
-  .nav-links{display:flex;gap:22px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .nav-name:hover{text-decoration:none;color:var(--link)}
+  .nav-right{display:flex;align-items:center;gap:18px;min-width:0}
+  .nav-links{display:flex;gap:20px;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .nav-links a{
-    font-size:.82rem;font-weight:500;color:var(--slate);
+    font-size:.82rem;font-weight:600;color:var(--muted);
     text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;
   }
-  .nav-links a:hover{color:var(--accent);text-decoration:none}
+  .nav-links a:hover{color:var(--link);text-decoration:none}
+  #theme-toggle{
+    flex:none;width:34px;height:34px;border-radius:6px;
+    border:1.5px solid var(--line);background:transparent;color:var(--ink);
+    font-size:1rem;line-height:1;cursor:pointer;
+  }
+  #theme-toggle:hover{border-color:var(--link);color:var(--link)}
 
   /* ── Hero ─────────────────────────── */
   header{
     position:relative;overflow:hidden;
+    background:var(--paper);
     background-image:
       linear-gradient(var(--grid) 1px,transparent 1px),
       linear-gradient(90deg,var(--grid) 1px,transparent 1px);
     background-size:44px 44px;
-    border-bottom:1px solid var(--line);
+    transition:background .25s ease;
   }
-  .hero{position:relative;padding:96px 0 72px}
+  .hero{position:relative;padding:96px 0 84px}
   .hero-curve{
-    position:absolute;right:-40px;bottom:0;width:min(58vw,560px);height:auto;
-    pointer-events:none;opacity:.9;
+    position:absolute;right:-40px;bottom:0;width:min(56vw,560px);height:auto;
+    pointer-events:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 25%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 25%);
   }
   .icc-path{
-    fill:none;stroke:var(--accent);stroke-width:2.5;
+    fill:none;stroke:url(#iccgrad);stroke-width:3.5;stroke-linecap:round;
     stroke-dasharray:900;stroke-dashoffset:900;
     animation:draw 1.8s ease-out .3s forwards;
   }
-  .icc-axis{stroke:var(--slate);stroke-width:1;opacity:.45}
-  .icc-label{font-family:'STIX Two Text',serif;font-style:italic;font-size:17px;fill:var(--slate)}
-  .icc-dot{fill:var(--accent);opacity:0;animation:appear .4s ease-out 2s forwards}
+  .icc-axis{stroke:var(--muted);opacity:.45;stroke-width:1}
+  .icc-label{font-family:'IBM Plex Mono',monospace;font-size:15px;fill:var(--muted)}
+  .icc-dot{fill:var(--a3);opacity:0;animation:appear .4s ease-out 2s forwards}
   @keyframes draw{to{stroke-dashoffset:0}}
   @keyframes appear{to{opacity:1}}
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .icc-path{stroke-dashoffset:0;animation:none}
     .icc-dot{opacity:1;animation:none}
+    .r-card:hover,.w-card:hover{transform:none}
   }
 
   .kicker{
     font-family:'IBM Plex Mono',monospace;font-size:.78rem;
-    letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
-    margin-bottom:18px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--a2);
+    margin-bottom:20px;
   }
   h1{
-    font-family:'STIX Two Text',serif;font-weight:600;
-    font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.08;
-    letter-spacing:-.01em;margin-bottom:14px;max-width:14ch;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(2.6rem,6.5vw,4.2rem);line-height:1.04;
+    letter-spacing:-.02em;margin-bottom:16px;max-width:14ch;
+    background:linear-gradient(92deg,var(--g1),var(--g2),var(--g3));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .tagline{
-    font-family:'STIX Two Text',serif;font-style:italic;
-    font-size:1.25rem;color:var(--slate);margin-bottom:22px;
+    font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:24px;
   }
-  .lede{max-width:52ch;color:var(--ink);margin-bottom:32px}
-  .lede strong{font-weight:600}
+  .lede{max-width:52ch;color:var(--muted);margin-bottom:34px}
+  .lede strong{font-weight:600;color:var(--ink)}
 
-  .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
   .btn{
-    display:inline-block;padding:11px 22px;border-radius:3px;
-    font-size:.9rem;font-weight:600;letter-spacing:.02em;
+    display:inline-block;padding:12px 26px;border-radius:6px;
+    font-size:.92rem;font-weight:600;letter-spacing:.01em;
   }
-  .btn-solid{background:var(--accent);color:#fff}
-  .btn-solid:hover{background:#75243C;text-decoration:none}
-  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+  .btn-solid{background:var(--btn);color:#fff}
+  .btn-solid:hover{background:var(--btn-hover);text-decoration:none}
+  .btn-ghost{border:1.5px solid var(--link);color:var(--link)}
+  .btn-ghost:hover{background:rgba(27,92,255,.08);text-decoration:none}
 
   .profile-links{display:flex;flex-wrap:wrap;gap:8px 22px}
   .profile-links a{
-    font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--slate);
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--muted);
   }
-  .profile-links a:hover{color:var(--accent)}
-
-  /* ── Ruler divider (signature) ────── */
-  .ruler{
-    height:14px;margin:0;border:none;
-    background-image:
-      linear-gradient(90deg,var(--line) 1px,transparent 1px),
-      linear-gradient(90deg,var(--slate) 1px,transparent 1px);
-    background-size:11px 7px,110px 14px;
-    background-repeat:repeat-x;
-    background-position:bottom left,bottom left;
-    opacity:.55;
-  }
+  .profile-links a:hover{color:var(--link)}
 
   /* ── Stats ────────────────────────── */
-  .stats{padding:44px 0;border-bottom:1px solid var(--line)}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stats{padding:48px 0;border-bottom:1px solid var(--line)}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .stat-num{
-    font-family:'IBM Plex Mono',monospace;font-size:1.55rem;font-weight:500;
-    color:var(--accent);
+    font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;
+    line-height:1.1;
   }
-  .stat-label{font-size:.8rem;color:var(--slate);letter-spacing:.03em;margin-top:2px}
+  .s1 .stat-num{color:var(--a1)}
+  .s2 .stat-num{color:var(--a2)}
+  .s3 .stat-num{color:var(--a3)}
+  .stat-label{font-size:.82rem;color:var(--muted);letter-spacing:.02em;margin-top:3px}
 
   /* ── Sections ─────────────────────── */
-  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  section{padding:84px 0}
+  .sec-tint{background:var(--tint);transition:background .25s ease}
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;font-size:.75rem;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
-    margin-bottom:10px;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;font-weight:700;
   }
+  .eb-1{color:var(--a1)}
+  .eb-2{color:var(--a2)}
+  .eb-3{color:var(--a3)}
+  .eb-4{color:var(--a4)}
   h2{
-    font-family:'STIX Two Text',serif;font-weight:600;
-    font-size:clamp(1.6rem,3.5vw,2.1rem);margin-bottom:28px;letter-spacing:-.01em;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:32px;letter-spacing:-.01em;
+    line-height:1.15;
   }
-  h2 .it{font-style:italic}
+  h2 .it{color:var(--a2)}
+
+  /* News */
+  .news-list{list-style:none;max-width:780px}
+  .news-item{display:grid;grid-template-columns:100px 1fr;gap:18px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .news-item:last-child{border-bottom:none}
+  .news-date{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--muted);padding-top:3px;white-space:nowrap}
+  .news-text{font-size:.97rem}
 
   /* About */
-  .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:start}
-  .about-text p{margin-bottom:18px;max-width:60ch}
+  .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:52px;align-items:start}
+  .about-text p{margin-bottom:18px;max-width:62ch}
   .portrait{
-    border:1px solid var(--line);border-radius:4px;overflow:hidden;
-    background:
-      linear-gradient(var(--grid) 1px,transparent 1px),
-      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-    background-size:28px 28px;
+    border-radius:10px;overflow:hidden;
+    background:linear-gradient(135deg,#4F46E5,#06B6D4);
     aspect-ratio:4/5;position:relative;
   }
   .portrait img{width:100%;height:100%;object-fit:cover;display:block}
   .portrait.no-photo::after{
     content:"JMC";
     position:absolute;inset:0;display:grid;place-items:center;
-    font-family:'STIX Two Text',serif;font-style:italic;font-size:3rem;
-    color:var(--accent);
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:3rem;
+    color:#fff;
   }
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
   .chip{
-    font-size:.78rem;font-weight:500;color:var(--ink);
-    background:var(--accent-soft);border-radius:999px;padding:5px 13px;
+    font-size:.8rem;font-weight:600;border-radius:6px;padding:6px 14px;
   }
+  .chips .chip:nth-child(4n+1){background:rgba(79,70,229,.12);color:var(--a1)}
+  .chips .chip:nth-child(4n+2){background:rgba(27,92,255,.12);color:var(--a2)}
+  .chips .chip:nth-child(4n+3){background:rgba(6,182,212,.12);color:var(--a3)}
+  .chips .chip:nth-child(4n+4){background:rgba(16,185,129,.12);color:var(--a4)}
 
   /* Research */
   .research-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-  .r-card{border:1px solid var(--line);border-radius:4px;padding:26px;background:#fff}
-  .r-glyph{
-    font-family:'STIX Two Text',serif;font-style:italic;
-    font-size:2rem;color:var(--accent);line-height:1;margin-bottom:12px;display:block;
+  .r-card{
+    background:var(--card);border-radius:10px;padding:30px 28px;
+    border:1px solid var(--line);
+    border-top:4px solid var(--c,var(--a2));
+    box-shadow:var(--shadow);
+    transition:transform .18s ease,box-shadow .18s ease,background .25s ease;
   }
-  .r-card h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.12rem;margin-bottom:8px}
-  .r-card p{font-size:.93rem;color:var(--slate)}
+  .r-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+  .c-1{--c:var(--a1)}
+  .c-2{--c:var(--a2)}
+  .c-3{--c:var(--a3)}
+  .c-4{--c:var(--a4)}
+  .r-glyph{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:1.9rem;color:var(--c);line-height:1;margin-bottom:14px;display:block;
+  }
+  .r-card h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:9px}
+  .r-card p{font-size:.93rem;color:var(--muted)}
 
   /* Publications */
-  .pub{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px 0;border-bottom:1px dashed var(--line)}
+  .pub{display:grid;grid-template-columns:160px 1fr;gap:22px;padding:20px 0;border-bottom:1px dashed var(--line)}
   .pub:last-of-type{border-bottom:none}
-  .pub-tag{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--slate);padding-top:3px}
-  .pub-title{font-weight:600;margin-bottom:2px}
-  .pub-desc{font-size:.9rem;color:var(--slate)}
-  .pub-more{margin-top:26px}
+  .pub-tag{font-family:'IBM Plex Mono',monospace;font-size:.73rem;color:var(--muted);padding-top:4px;text-transform:uppercase;letter-spacing:.04em}
+  .pub-title{font-weight:600;margin-bottom:3px;font-size:1.02rem}
+  .pub-desc{font-size:.9rem;color:var(--muted)}
+  .pub-more{margin-top:30px}
 
   /* Writing */
   .writing-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-  .w-card{border:1px solid var(--line);border-radius:4px;padding:26px;background:#fff;display:block;color:var(--ink)}
-  .w-card:hover{text-decoration:none;border-color:var(--accent)}
-  .w-kicker{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-  .w-card h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.15rem;margin-bottom:6px}
-  .w-card p{font-size:.92rem;color:var(--slate)}
-  .w-arrow{display:inline-block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--accent)}
+  .w-card{
+    background:var(--card);border-radius:10px;padding:30px 28px;display:block;color:var(--ink);
+    border:1px solid var(--line);
+    border-top:4px solid var(--c,var(--a2));
+    box-shadow:var(--shadow);
+    transition:transform .18s ease,box-shadow .18s ease,background .25s ease;
+  }
+  .w-card:hover{text-decoration:none;transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+  .w-kicker{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin-bottom:9px;font-weight:700}
+  .w-card h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:7px}
+  .w-card p{font-size:.92rem;color:var(--muted)}
+  .w-arrow{display:inline-block;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--c);font-weight:700}
+  .span-2{grid-column:1/-1}
+  .video-frame{width:100%;max-width:640px;aspect-ratio:16/9;border:0;border-radius:6px;margin-top:16px;display:block}
 
   /* Contact */
-  .contact p{max-width:52ch;margin-bottom:24px}
+  .contact p{max-width:52ch;margin-bottom:26px}
 
   /* Footer */
-  footer{padding:36px 0 48px}
-  .foot-disclaimer{font-size:.8rem;color:var(--slate);max-width:64ch;margin-bottom:14px}
-  .foot-meta{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--slate)}
+  footer{background:var(--tint);padding:38px 0 50px;transition:background .25s ease}
+  .foot-disclaimer{font-size:.8rem;color:var(--muted);max-width:64ch;margin-bottom:14px}
+  .foot-meta{font-family:'IBM Plex Mono',monospace;font-size:.73rem;color:var(--muted)}
 
   /* ── Responsive ───────────────────── */
   @media (max-width:760px){
-    .hero{padding:64px 0 200px}
-    .hero-curve{width:88vw;right:-30px;opacity:.55}
-    .stats-grid{grid-template-columns:1fr 1fr;gap:28px 16px}
+    .hero{padding:64px 0 210px}
+    .hero-curve{width:90vw;right:-30px;opacity:.7}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:30px 16px}
     .about-grid{grid-template-columns:1fr}
     .portrait{max-width:280px}
     .research-grid,.writing-grid{grid-template-columns:1fr}
-    .pub{grid-template-columns:1fr;gap:4px}
+    .pub{grid-template-columns:1fr;gap:5px}
+    .news-item{grid-template-columns:88px 1fr;gap:12px}
   }
 </style>
 </head>
@@ -230,12 +312,16 @@
 <nav aria-label="Site">
   <div class="nav-inner">
     <a class="nav-name" href="#top">Jodi M. Casabianca</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#news">News</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="theme-toggle" aria-label="Switch color theme">&#9790;</button>
     </div>
   </div>
 </nav>
@@ -244,23 +330,29 @@
   <div class="wrap hero">
     <!-- Item characteristic curve — the signature motif -->
     <svg class="hero-curve" viewBox="0 0 600 320" aria-hidden="true">
+      <defs>
+        <linearGradient id="iccgrad" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#4F46E5"/>
+          <stop offset=".5" stop-color="#1B5CFF"/>
+          <stop offset="1" stop-color="#06B6D4"/>
+        </linearGradient>
+      </defs>
       <line class="icc-axis" x1="30" y1="290" x2="580" y2="290"/>
-      <line class="icc-axis" x1="30" y1="290" x2="30" y2="20"/>
       <text class="icc-label" x="560" y="313">&#952;</text>
-      <text class="icc-label" x="8" y="34">P(&#952;)</text>
       <path class="icc-path" d="M 40 282 C 180 276, 240 240, 300 155 C 360 70, 430 32, 570 26"/>
-      <circle class="icc-dot" cx="300" cy="155" r="5"/>
+      <circle class="icc-dot" cx="300" cy="155" r="6"/>
     </svg>
 
     <p class="kicker">Research Scientist, NIST &nbsp;&middot;&nbsp; Founder &amp; Chief Scientist, BroadMetrics</p>
-    <h1>Hi, I&rsquo;m Jodi Casabianca</h1>
-    <p class="tagline">Psychometrician &amp; measurement scientist</p>
+    <h1>AI has a measurement problem.</h1>
+    <p class="tagline">I&rsquo;m Jodi Casabianca &mdash; a psychometrician working on it.</p>
     <p class="lede">
-      I work at the intersection of <strong>psychometrics</strong>, <strong>assessment</strong>,
-      and <strong>AI evaluation</strong> &mdash; bringing a century of measurement science to bear
-      on how we evaluate modern AI systems. My goal is to help researchers, developers, and
-      organizations draw valid, reliable, and defensible conclusions from their measurements,
-      whether the examinee is a student or a language model.
+      Benchmarks saturate, scores get gamed, and AI evaluations rarely meet the standards we
+      demand of high-stakes testing. Those are <strong>measurement problems</strong> &mdash;
+      and measurement science has spent a century solving them. I bring
+      <strong>psychometrics</strong> &mdash; validity, reliability, item response theory &mdash;
+      to <strong>AI evaluation</strong>, so conclusions about AI systems can be as defensible
+      as the conclusions we draw about people.
     </p>
     <div class="btn-row">
       <a class="btn btn-solid" href="#publications">View publications</a>
@@ -277,20 +369,51 @@
   </div>
 </header>
 
-<hr class="ruler" aria-hidden="true">
+<hr class="stripe" aria-hidden="true">
 
 <div class="stats">
   <div class="wrap stats-grid">
-    <div><div class="stat-num">1,200+</div><div class="stat-label">Citations</div></div>
-    <div><div class="stat-num">15+</div><div class="stat-label">Years in large-scale assessment</div></div>
-    <div><div class="stat-num">Ph.D.</div><div class="stat-label">Psychometrics, Fordham University</div></div>
-    <div><div class="stat-num">AE</div><div class="stat-label">Assoc. Editor, <em>EM:IP</em></div></div>
+    <div class="s1"><div class="stat-num">1,200+</div><div class="stat-label">Citations</div></div>
+    <div class="s2"><div class="stat-num">15+</div><div class="stat-label">Years in large-scale assessment</div></div>
+    <div class="s3"><div class="stat-num">Ph.D.</div><div class="stat-label">Psychometrics, Fordham University</div></div>
   </div>
 </div>
 
-<section id="about">
+<section id="news">
   <div class="wrap">
-    <p class="eyebrow">About</p>
+    <p class="eyebrow eb-3">News</p>
+    <h2>Recent <span class="it">updates</span></h2>
+    <!-- ═══════════════════════════════════════════════════════════
+         TO ADD A NEWS ITEM: copy the line below, paste it as the
+         FIRST item inside <ul class="news-list">, and edit the
+         date and text. Newest items go on top.
+
+    <li class="news-item"><span class="news-date">Mon YYYY</span><span class="news-text">Your update here.</span></li>
+
+         Example phrasings:
+           New paper in <em>Journal Name</em>: &ldquo;Title.&rdquo;
+           Presented &ldquo;Talk title&rdquo; at Conference Name, City.
+           New essay on <a href="https://measuringai.substack.com">Measuring AI</a>: &ldquo;Title.&rdquo;
+         Tip: prune items older than ~18 months so the list stays fresh.
+         ═══════════════════════════════════════════════════════════ -->
+    <ul class="news-list">
+      <li class="news-item"><span class="news-date">Jul 2026</span><span class="news-text">New paper at ICML 2026: <a href="https://arxiv.org/abs/2605.25272">&ldquo;AI Cartography: Mapping the Latent Landscape of AI Benchmark Ecosystems.&rdquo;</a></span></li>
+      <li class="news-item"><span class="news-date">Jul 2026</span><span class="news-text">Launched this website.</span></li>
+      <li class="news-item"><span class="news-date">Jun 2026</span><span class="news-text">Joined the National Institute of Standards and Technology (NIST) as a Research Scientist working on AI measurement and evaluation.</span></li>
+      <li class="news-item"><span class="news-date">May 2026</span><span class="news-text">Completed the capstone week in Valencia, Spain, for the inaugural <a href="https://ai-evaluation.org/">International Programme on AI Evaluation: Capabilities &amp; Safety</a>.</span></li>
+      <li class="news-item"><span class="news-date">Apr 2026</span><span class="news-text">Presented <a href="https://arxiv.org/abs/2602.22585">&ldquo;Correcting Human Labels for Rater Effects in AI Evaluation: An Item Response Theory Approach&rdquo;</a> (with Maggie Beiting-Parrish) at the LLM Psychometrics workshop at LAK 2026 in Bergen, Norway &mdash; now in press in the workshop proceedings.</span></li>
+      <li class="news-item"><span class="news-date">Mar 2026</span><span class="news-text">New preprint: <a href="https://arxiv.org/abs/2603.19280">&ldquo;From Feature-Based Models to Generative AI: Validity Evidence for Constructed Response Scoring&rdquo;</a> (with Daniel McCaffrey, Matthew Johnson, Naim Alper, and Vladimir Zubenko).</span></li>
+      <li class="news-item"><span class="news-date">Feb 2026</span><span class="news-text">New article in <em>Educational Measurement: Issues and Practice</em>: <a href="https://doi.org/10.1111/emip.70017">&ldquo;Limitations of QWK in Evaluating Automated and Human Scoring Systems&rdquo;</a> (with Jennifer Lewis).</span></li>
+      <li class="news-item"><span class="news-date">Dec 2025</span><span class="news-text">New article in the <em>Journal of Educational and Behavioral Statistics</em>: <a href="https://doi.org/10.3102/10769986251393501">&ldquo;An Empirical Bayesian Approach for Testing the Fairness of Automated Scoring&rdquo;</a> (with Sunbeom Kwon, Daniel McCaffrey, and Paul Jewsbury).</span></li>
+      <li class="news-item"><span class="news-date">Oct 2025</span><span class="news-text">New article in the <em>Journal of Educational Measurement</em>: <a href="https://doi.org/10.1111/jedm.70011">&ldquo;Measuring the Accuracy of True Score Predictions for AI Scoring Evaluation&rdquo;</a> (with Daniel McCaffrey and Matthew Johnson).</span></li>
+      <li class="news-item"><span class="news-date">Oct 2025</span><span class="news-text">Presented an LLM evaluation workshop at AIME-Con 2025, NCME&rsquo;s Artificial Intelligence in Measurement and Education Conference, in Pittsburgh, PA.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" class="sec-tint">
+  <div class="wrap">
+    <p class="eyebrow eb-1">About</p>
     <h2>Measurement science <span class="it">for the AI era</span></h2>
     <div class="about-grid">
       <div class="about-text">
@@ -308,9 +431,16 @@
           Technology (NIST), where I work on measurement and evaluation methods for AI systems.
           I am also the founder of BroadMetrics, bridging academic psychometrics and real-world
           applications &mdash; from human rating systems and automated scoring evaluation to
-          psychometric approaches for AI benchmarking. I serve as an Associate Editor of
-          <em>Educational Measurement: Issues and Practice</em> and write about measurement and
-          AI evaluation on my Substack, <em>Measuring AI</em>.
+          psychometric approaches for AI benchmarking. I write about measurement and AI
+          evaluation on my Substack, <em>Measuring AI</em>.
+        </p>
+        <p>
+          AI measurement is a young discipline; psychometrics is more than a century old &mdash;
+          and my academic family tree runs straight through it. Frederic Lord and Melvin Novick,
+          whose <em>Statistical Theories of Mental Test Scores</em> defined modern test theory,
+          are, quite literally, my academic grandfathers. The through-line of my work &mdash; at
+          NIST, at BroadMetrics, in my research, and in my writing &mdash; is carrying that
+          lineage into the measurement of AI.
         </p>
         <div class="chips" aria-label="Research interests">
           <span class="chip">Psychometrics</span>
@@ -336,10 +466,10 @@
 
 <section id="research">
   <div class="wrap">
-    <p class="eyebrow">Research</p>
-    <h2>Making measurement <span class="it">reliable, interpretable, defensible</span></h2>
+    <p class="eyebrow eb-2">Research</p>
+    <h2>Building the <span class="it">measurement science</span> AI evaluation needs</h2>
     <div class="research-grid">
-      <div class="r-card">
+      <div class="r-card c-1">
         <span class="r-glyph" aria-hidden="true">&#952;</span>
         <h3>Psychometrics for AI Evaluation</h3>
         <p>Applying validity theory, evidence-centered design, and item response theory to AI
@@ -347,7 +477,7 @@
         that educational measurement solved decades ago &mdash; construct underrepresentation,
         score inflation, benchmark saturation &mdash; and those solutions adapt to LLM contexts.</p>
       </div>
-      <div class="r-card">
+      <div class="r-card c-2">
         <span class="r-glyph" aria-hidden="true">&#961;</span>
         <h3>Raters, Ratings &amp; Human Judgment</h3>
         <p>Modeling rater effects with the hierarchical rater model (HRM) framework and its
@@ -355,14 +485,14 @@
         are measurements subject to systematic error, and psychometric rater models improve
         the reliability of conclusions drawn from them.</p>
       </div>
-      <div class="r-card">
+      <div class="r-card c-3">
         <span class="r-glyph" aria-hidden="true">&#954;</span>
         <h3>Scoring with Humans &amp; Machines</h3>
         <p>Methods for evaluating automated scoring engines, including fairness testing,
         agreement metrics (and the limitations of quadratic weighted kappa), and validity
         arguments for constructed-response scoring with generative AI.</p>
       </div>
-      <div class="r-card">
+      <div class="r-card c-4">
         <span class="r-glyph" aria-hidden="true">&#968;</span>
         <h3>Scale Development &amp; Validation</h3>
         <p>Developing and validating psychometric instruments, from social-emotional learning
@@ -373,9 +503,9 @@
   </div>
 </section>
 
-<section id="publications">
+<section id="publications" class="sec-tint">
   <div class="wrap">
-    <p class="eyebrow">Publications</p>
+    <p class="eyebrow eb-4">Publications</p>
     <h2>Selected work</h2>
 
     <!-- Replace these entries with full APA citations from your CV as desired. -->
@@ -423,37 +553,52 @@
     </div>
 
     <p class="pub-more">
-      <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=8TjqccwAAAAJ">Full list on Google Scholar &#8599;</a>
+      <a class="btn btn-solid" href="https://scholar.google.com/citations?user=8TjqccwAAAAJ">Full list on Google Scholar &#8599;</a>
     </p>
   </div>
 </section>
 
 <section id="writing">
   <div class="wrap">
-    <p class="eyebrow">Writing</p>
-    <h2>Essays &amp; commentary</h2>
+    <p class="eyebrow eb-3">Writing</p>
+    <h2>Making the case for <span class="it">AI measurement</span></h2>
     <div class="writing-grid">
-      <a class="w-card" href="https://measuringai.substack.com">
+      <a class="w-card c-2" href="https://measuringai.substack.com">
         <p class="w-kicker">Substack</p>
         <h3>Measuring AI</h3>
         <p>Essays on psychometrics and AI evaluation science &mdash; validity, benchmarks,
         human ratings, and what a century of measurement theory offers the AI era.</p>
         <span class="w-arrow">Read on Substack &#8599;</span>
       </a>
-      <a class="w-card" href="https://medium.com/@jodi.casabianca">
+      <a class="w-card c-1" href="https://medium.com/@jodi.casabianca">
         <p class="w-kicker">Medium series</p>
         <h3>Psychometrics: What You Didn&rsquo;t Know You Needed</h3>
         <p>A guide to psychometric methods for AI developers and evaluators, written for
         readers without a measurement background.</p>
         <span class="w-arrow">Read on Medium &#8599;</span>
       </a>
+      <div class="w-card c-3 span-2">
+        <p class="w-kicker">Video</p>
+        <h3>The International Programme on AI Evaluation</h3>
+        <p>Interviewed for the programme&rsquo;s film on building the field of rigorous AI evaluation.</p>
+        <!-- TO SHOW ONLY YOUR SEGMENT: in the src below, replace start=0 with your
+             segment's start and end times IN SECONDS, joined by &amp; for example:
+             ...?start=95&amp;end=142
+             (95 = 1:35, 142 = 2:22). The player will begin at your part and stop
+             when it ends. -->
+        <iframe class="video-frame"
+                src="https://www.youtube-nocookie.com/embed/5qa20eQjcTE?start=180&amp;end=200"
+                title="International Programme on AI Evaluation — interview with Jodi Casabianca"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact sec-tint">
   <div class="wrap">
-    <p class="eyebrow">Contact</p>
+    <p class="eyebrow eb-1">Contact</p>
     <h2>Get in touch</h2>
     <p>For research collaborations, consulting inquiries, or speaking engagements, reach me
     through LinkedIn or BroadMetrics.</p>
@@ -467,6 +612,8 @@
   </div>
 </section>
 
+<hr class="stripe" aria-hidden="true">
+
 <footer>
   <div class="wrap">
     <p class="foot-disclaimer">Views expressed on this site are my own and do not represent the
@@ -474,6 +621,25 @@
     <p class="foot-meta">&copy; 2026 Jodi M. Casabianca &middot; Last updated July 2026</p>
   </div>
 </footer>
+
+<script>
+  // Light/dark toggle. Falls back gracefully if storage is unavailable.
+  (function(){
+    var root=document.documentElement;
+    var btn=document.getElementById('theme-toggle');
+    function apply(t){
+      root.setAttribute('data-theme',t);
+      btn.innerHTML=(t==='dark')?'&#9788;':'&#9790;';
+      btn.setAttribute('aria-label',(t==='dark')?'Switch to light mode':'Switch to dark mode');
+    }
+    apply(root.getAttribute('data-theme')||'light');
+    btn.addEventListener('click',function(){
+      var next=(root.getAttribute('data-theme')==='dark')?'light':'dark';
+      apply(next);
+      try{localStorage.setItem('theme',next)}catch(e){}
+    });
+  })();
+</script>
 
 </body>
 </html>
