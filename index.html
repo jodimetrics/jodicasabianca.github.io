@@ -179,18 +179,6 @@
   }
   .profile-links a:hover{color:var(--link)}
 
-  /* ── Stats ────────────────────────── */
-  .stats{padding:48px 0;border-bottom:1px solid var(--line)}
-  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .stat-num{
-    font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;
-    line-height:1.1;
-  }
-  .s1 .stat-num{color:var(--a1)}
-  .s2 .stat-num{color:var(--a2)}
-  .s3 .stat-num{color:var(--a3)}
-  .stat-label{font-size:.82rem;color:var(--muted);letter-spacing:.02em;margin-top:3px}
-
   /* ── Sections ─────────────────────── */
   section{padding:84px 0}
   .sec-tint{background:var(--tint);transition:background .25s ease}
@@ -231,6 +219,14 @@
     font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:3rem;
     color:#fff;
   }
+  .funfact{
+    margin:22px 0 4px;padding:16px 18px;
+    background:var(--card);border:1px solid var(--line);
+    border-left:4px solid var(--a3);border-radius:6px;
+    transition:background .25s ease;
+  }
+  .funfact-label{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--a3);font-weight:700;margin-bottom:5px}
+  .funfact-text{font-size:.95rem}
   .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
   .chip{
     font-size:.8rem;font-weight:600;border-radius:6px;padding:6px 14px;
@@ -261,13 +257,8 @@
   .r-card h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:9px}
   .r-card p{font-size:.93rem;color:var(--muted)}
 
-  /* Publications */
-  .pub{display:grid;grid-template-columns:160px 1fr;gap:22px;padding:20px 0;border-bottom:1px dashed var(--line)}
-  .pub:last-of-type{border-bottom:none}
-  .pub-tag{font-family:'IBM Plex Mono',monospace;font-size:.73rem;color:var(--muted);padding-top:4px;text-transform:uppercase;letter-spacing:.04em}
-  .pub-title{font-weight:600;margin-bottom:3px;font-size:1.02rem}
-  .pub-desc{font-size:.9rem;color:var(--muted)}
-  .pub-more{margin-top:30px}
+  /* Publications link */
+  .pub-more{margin-top:34px}
 
   /* Writing */
   .writing-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
@@ -298,11 +289,9 @@
   @media (max-width:760px){
     .hero{padding:64px 0 210px}
     .hero-curve{width:90vw;right:-30px;opacity:.7}
-    .stats-grid{grid-template-columns:1fr 1fr;gap:30px 16px}
     .about-grid{grid-template-columns:1fr}
     .portrait{max-width:280px}
     .research-grid,.writing-grid{grid-template-columns:1fr}
-    .pub{grid-template-columns:1fr;gap:5px}
     .news-item{grid-template-columns:88px 1fr;gap:12px}
   }
 </style>
@@ -317,8 +306,7 @@
         <a href="#news">News</a>
         <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#writing">Writing</a>
+        <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
       </div>
       <button id="theme-toggle" aria-label="Switch color theme">&#9790;</button>
@@ -355,7 +343,7 @@
       as the conclusions we draw about people.
     </p>
     <div class="btn-row">
-      <a class="btn btn-solid" href="#publications">View publications</a>
+      <a class="btn btn-solid" href="https://scholar.google.com/citations?user=8TjqccwAAAAJ">View publications</a>
       <a class="btn btn-ghost" href="#contact">Get in touch</a>
     </div>
     <div class="profile-links" aria-label="Profiles">
@@ -370,14 +358,6 @@
 </header>
 
 <hr class="stripe" aria-hidden="true">
-
-<div class="stats">
-  <div class="wrap stats-grid">
-    <div class="s1"><div class="stat-num">1,200+</div><div class="stat-label">Citations</div></div>
-    <div class="s2"><div class="stat-num">15+</div><div class="stat-label">Years in large-scale assessment</div></div>
-    <div class="s3"><div class="stat-num">Ph.D.</div><div class="stat-label">Psychometrics, Fordham University</div></div>
-  </div>
-</div>
 
 <section id="news">
   <div class="wrap">
@@ -435,13 +415,16 @@
           evaluation on my Substack, <em>Measuring AI</em>.
         </p>
         <p>
-          AI measurement is a young discipline; psychometrics is more than a century old &mdash;
-          and my academic family tree runs straight through it. Frederic Lord and Melvin Novick,
-          whose <em>Statistical Theories of Mental Test Scores</em> defined modern test theory,
-          are, quite literally, my academic grandfathers. The through-line of my work &mdash; at
-          NIST, at BroadMetrics, in my research, and in my writing &mdash; is carrying that
-          lineage into the measurement of AI.
+          AI measurement is a young discipline; psychometrics is more than a century old. The
+          through-line of my work &mdash; at NIST, at BroadMetrics, in my research, and in my
+          writing &mdash; is connecting the two.
         </p>
+        <div class="funfact">
+          <p class="funfact-label">Fun fact</p>
+          <p class="funfact-text">My dissertation advisor helped edit Lord &amp; Novick&rsquo;s
+          <em>Statistical Theories of Mental Test Scores</em> &mdash; the 1968 book that laid
+          the foundations of modern test theory.</p>
+        </div>
         <div class="chips" aria-label="Research interests">
           <span class="chip">Psychometrics</span>
           <span class="chip">AI Evaluation</span>
@@ -454,11 +437,12 @@
           <span class="chip">LLM Benchmarking</span>
         </div>
       </div>
-      <!-- Replace with your headshot: upload a file named profile.jpg to the same folder.
-           Until then, an initials placeholder is shown automatically. -->
+      <!-- Upload your headshot to the same folder as this file, named either
+           profile.jpg or profile.png (all lowercase). The code tries both;
+           if neither exists, an initials placeholder is shown. -->
       <figure class="portrait">
         <img src="profile.jpg" alt="Portrait of Jodi M. Casabianca"
-             onerror="this.parentElement.classList.add('no-photo');this.remove()">
+             onerror="if(!this.dataset.t){this.dataset.t=1;this.src='profile.png'}else{this.parentElement.classList.add('no-photo');this.remove()}">
       </figure>
     </div>
   </div>
@@ -500,67 +484,15 @@
         metacognition.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="publications" class="sec-tint">
-  <div class="wrap">
-    <p class="eyebrow eb-4">Publications</p>
-    <h2>Selected work</h2>
-
-    <!-- Replace these entries with full APA citations from your CV as desired. -->
-    <div class="pub">
-      <div class="pub-tag">2025 &middot; Position paper</div>
-      <div>
-        <div class="pub-title">Psychometrics Is All You Need</div>
-        <div class="pub-desc">Psychometric methods and validity frameworks for AI evaluation science.</div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-tag">Journal article</div>
-      <div>
-        <div class="pub-title">Psychometric rater models in the AI pipeline</div>
-        <div class="pub-desc">Treating human evaluations of AI as measurements subject to systematic error, and modeling rater effects to improve reliability and validity.</div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-tag">Journal article</div>
-      <div>
-        <div class="pub-title">On the quadratic weighted kappa</div>
-        <div class="pub-desc">Practical limitations of QWK for interrater reliability and automated scoring evaluation, compared with alternative concordance metrics.</div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-tag">Journal article</div>
-      <div>
-        <div class="pub-title">Accounting for Rater Effects With the Hierarchical Rater Model Framework When Scoring Simple Structured Constructed Response Tests</div>
-        <div class="pub-desc">Extending the HRM to multidimensional, simple structured assessments.</div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-tag">Handbook chapter</div>
-      <div>
-        <div class="pub-title">The Hierarchical Rater Model (with B. Junker &amp; R. Patz)</div>
-        <div class="pub-desc"><em>Handbook of Item Response Theory.</em></div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-tag">Digital module</div>
-      <div>
-        <div class="pub-title">ITEMS module: The Hierarchical Rater Model framework</div>
-        <div class="pub-desc">A primer on analyzing raters and ratings of constructed responses.</div>
-      </div>
-    </div>
-
     <p class="pub-more">
-      <a class="btn btn-solid" href="https://scholar.google.com/citations?user=8TjqccwAAAAJ">Full list on Google Scholar &#8599;</a>
+      <a class="btn btn-solid" href="https://scholar.google.com/citations?user=8TjqccwAAAAJ">Full list of publications on Google Scholar &#8599;</a>
     </p>
   </div>
 </section>
 
-<section id="writing">
+<section id="blog" class="sec-tint">
   <div class="wrap">
-    <p class="eyebrow eb-3">Writing</p>
+    <p class="eyebrow eb-3">Blog</p>
     <h2>Making the case for <span class="it">AI measurement</span></h2>
     <div class="writing-grid">
       <a class="w-card c-2" href="https://measuringai.substack.com">
@@ -596,7 +528,7 @@
   </div>
 </section>
 
-<section id="contact" class="contact sec-tint">
+<section id="contact" class="contact">
   <div class="wrap">
     <p class="eyebrow eb-1">Contact</p>
     <h2>Get in touch</h2>
