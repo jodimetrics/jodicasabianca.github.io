@@ -121,9 +121,9 @@
     background-size:44px 44px;
     transition:background .25s ease;
   }
-  .hero{position:relative;padding:96px 0 84px}
+  .hero{position:relative;padding:96px 0 120px}
   .hero-curve{
-    position:absolute;right:-40px;bottom:0;width:min(56vw,560px);height:auto;
+    position:absolute;right:-40px;bottom:40px;width:min(56vw,560px);height:auto;
     pointer-events:none;
     -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 25%);
     mask-image:linear-gradient(90deg,transparent 0,#000 25%);
@@ -287,7 +287,7 @@
 
   /* ── Responsive ───────────────────── */
   @media (max-width:760px){
-    .hero{padding:64px 0 210px}
+    .hero{padding:64px 0 240px}
     .hero-curve{width:90vw;right:-30px;opacity:.7}
     .about-grid{grid-template-columns:1fr}
     .portrait{max-width:280px}
@@ -364,19 +364,6 @@
   <div class="wrap">
     <p class="eyebrow eb-3">News</p>
     <h2>Recent <span class="it">updates</span></h2>
-    <!-- ═══════════════════════════════════════════════════════════
-         TO ADD A NEWS ITEM: copy the line below, paste it as the
-         FIRST item inside <ul class="news-list">, and edit the
-         date and text. Newest items go on top.
-
-    <li class="news-item"><span class="news-date">Mon YYYY</span><span class="news-text">Your update here.</span></li>
-
-         Example phrasings:
-           New paper in <em>Journal Name</em>: &ldquo;Title.&rdquo;
-           Presented &ldquo;Talk title&rdquo; at Conference Name, City.
-           New essay on <a href="https://measuringai.substack.com">Measuring AI</a>: &ldquo;Title.&rdquo;
-         Tip: prune items older than ~18 months so the list stays fresh.
-         ═══════════════════════════════════════════════════════════ -->
     <ul class="news-list">
       <li class="news-item"><span class="news-date">Jul 2026</span><span class="news-text">New paper at ICML 2026: <a href="https://arxiv.org/abs/2605.25272">&ldquo;AI Cartography: Mapping the Latent Landscape of AI Benchmark Ecosystems&rdquo;</a> (with Mike Hardy and others). </span></li>
       <li class="news-item"><span class="news-date">Jun 2026</span><span class="news-text">Excited to announce that I've joined the National Institute of Standards and Technology (NIST) as a Research Scientist working on AI measurement and evaluation in the <a href=https://www.nist.gov/caisi>Center for AI Standards and Innovation</a>.</span></li>
@@ -439,9 +426,6 @@ Monitoring in AI–Human Conversation </span></li>
           <span class="chip">LLM Benchmarking</span>
         </div>
       </div>
-      <!-- Upload your headshot to the same folder as this file, named either
-           profile.jpg or profile.png (all lowercase). The code tries both;
-           if neither exists, an initials placeholder is shown. -->
       <figure class="portrait">
         <img src="profile.jpg" alt="Portrait of Jodi M. Casabianca"
              onerror="if(!this.dataset.t){this.dataset.t=1;this.src='profile.png'}else{this.parentElement.classList.add('no-photo');this.remove()}">
@@ -515,11 +499,6 @@ Monitoring in AI–Human Conversation </span></li>
         <p class="w-kicker">Video</p>
         <h3>The International Programme on AI Evaluation</h3>
         <p>Interviewed for the programme&rsquo;s film on building the field of rigorous AI evaluation.</p>
-        <!-- TO SHOW ONLY YOUR SEGMENT: in the src below, replace start=0 with your
-             segment's start and end times IN SECONDS, joined by &amp; for example:
-             ...?start=95&amp;end=142
-             (95 = 1:35, 142 = 2:22). The player will begin at your part and stop
-             when it ends. -->
         <iframe class="video-frame"
                 src="https://www.youtube-nocookie.com/embed/5qa20eQjcTE?start=180&amp;end=200"
                 title="International Programme on AI Evaluation — interview with Jodi Casabianca"
@@ -536,9 +515,6 @@ Monitoring in AI–Human Conversation </span></li>
     <h2>Get in touch</h2>
     <p>For research collaborations, consulting inquiries, or speaking engagements, reach me
     through LinkedIn or BroadMetrics.</p>
-    <!-- To add a direct email button, uncomment and edit the line below:
-    <a class="btn btn-solid" href="mailto:you@example.com">Email me</a>
-    -->
     <div class="btn-row">
       <a class="btn btn-solid" href="https://www.linkedin.com/in/jcasabianca/">Message me on LinkedIn</a>
       <a class="btn btn-ghost" href="https://www.broadmetrics.co">Visit BroadMetrics</a>
